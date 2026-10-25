@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../images/Logo_MyPath_header.png">
+  <link rel="stylesheet" href="../style.css">
+  <title>MyPath – Cours CSS</title>
+</head>
+<body data-root="../" data-course="css">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <aside class="sidebar" id="menu">
+    <img class="logo" src="../images/Logo_MyPath.png" alt="Logo MyPath">
+    <nav class="menu-links" aria-label="Navigation principale">
+      <a href="../index.html">Accueil</a>
+      <a href="html.html">Cours HTML</a>
+      <a href="css.html" aria-current="page">Cours CSS</a>
+      <a href="javascript.html">Cours JavaScript (vidéo)</a>
+      <a href="../index.html#progression">Ma progression</a>
+    </nav>
+  </aside>
+
+  <div class="content">
+    <header class="navbar">
+      <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false">&#9776;</button>
+      <div class="search">
+        <label class="visually-hidden" for="search">Rechercher un cours</label>
+        <input class="search-input" id="search" type="search" placeholder="Search...">
+        <button class="search-button" type="button">Search</button>
+      </div>
+      <div class="profile">
+        <img class="profile-img" src="../images/profile.webp" alt="Profil">
+        <p class="profile-name">Student</p>
+      </div>
+    </header>
+
+    <main class="main course-main" id="contenu">
+      <a class="back" href="../index.html#cours">&larr; Retour aux cours</a>
+
+      <section class="progress-panel" aria-label="Progression globale">
+        <p class="progress-text" aria-live="polite"><span data-progress-text>0 cours terminé sur 3 (0 %)</span></p>
+        <progress class="progress-bar" max="100" value="0" aria-label="Progression globale">0 %</progress>
+      </section>
+
+      <article class="lesson">
+        <h1>Cours CSS : mettre en forme une page</h1>
+        <p class="lead">Un cours écrit pour maîtriser les styles, la mise en page et le responsive.</p>
+
+        <section>
+          <h2>Objectifs pédagogiques</h2>
+          <ul>
+            <li>Relier une feuille de style à une page HTML.</li>
+            <li>Utiliser les sélecteurs et comprendre le modèle de boîte.</li>
+            <li>Construire une mise en page avec Flexbox et Grid.</li>
+            <li>Adapter l'affichage aux petits écrans avec les media queries.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>1. Qu'est-ce que CSS ?</h2>
+          <p>CSS (Cascading Style Sheets) décrit l'<strong>apparence</strong> d'une page : couleurs, polices, espacements et disposition. On le relie à une page HTML dans le <code>head</code> :</p>
+<pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+          <figure>
+            <img src="../images/html-css.jpg" alt="Illustration de HTML et CSS">
+            <figcaption>Le même HTML peut avoir plusieurs apparences grâce au CSS.</figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h2>2. Les sélecteurs</h2>
+          <p>Un sélecteur indique quels éléments recevront les styles :</p>
+<pre><code>/* Tous les paragraphes */
+p { color: #1E1B5C; }
+
+/* Les éléments de classe "card" */
+.card { border-radius: 10px; }
+
+/* L'élément d'identifiant "menu" */
+#menu { background-color: #F5F7FF; }
+
+/* Effet au survol */
+.btn-voir:hover { background-color: #FFB020; }</code></pre>
+        </section>
+
+        <section>
+          <h2>3. Le modèle de boîte</h2>
+          <p>Chaque élément est une boîte composée, de l'intérieur vers l'extérieur, du contenu, du <code>padding</code> (marge intérieure), de la bordure <code>border</code> et du <code>margin</code> (marge extérieure).</p>
+<pre><code>.card {
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin: 10px;
+}</code></pre>
+        </section>
+
+        <section>
+          <h2>4. Flexbox et Grid</h2>
+          <h3>4.1 Flexbox : aligner en une dimension</h3>
+<pre><code>.navbar {
+  display: flex;
+  align-items: center;
+}</code></pre>
+          <h3>4.2 Grid : organiser en deux dimensions</h3>
+          <p>La grille ci-dessous crée autant de colonnes de 220 px minimum que la largeur de l'écran le permet :</p>
+<pre><code>.main {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}</code></pre>
+        </section>
+
+        <section>
+          <h2>5. Le responsive design</h2>
+          <p>Les media queries appliquent des règles seulement à partir ou jusqu'à une certaine largeur d'écran :</p>
+<pre><code>@media (max-width: 768px) {
+  body { grid-template-columns: 1fr; }
+}</code></pre>
+        </section>
+
+        <section class="summary">
+          <h2>Résumé</h2>
+          <ul>
+            <li>CSS gère l'apparence ; on le relie avec <code>link</code>.</li>
+            <li>Les sélecteurs ciblent les éléments (balise, classe, identifiant).</li>
+            <li>Le modèle de boîte : contenu, padding, border, margin.</li>
+            <li>Flexbox pour une ligne ou une colonne, Grid pour une grille.</li>
+            <li>Les media queries adaptent le design aux écrans.</li>
+          </ul>
+        </section>
+      </article>
+
+      <nav class="course-nav" aria-label="Navigation entre les cours">
+        <a class="btn-nav" href="html.html">Cours précédent</a>
+        <button class="btn-done" id="done" type="button" data-course="css">Marquer comme terminé</button>
+        <a class="btn-nav" href="javascript.html">Cours suivant</a>
+      </nav>
+    </main>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>

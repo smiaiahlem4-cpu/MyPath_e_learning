@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./images/Logo_MyPath_header.png">
+  <link rel="stylesheet" href="style.css">
+  <title>MyPath – Mes cours</title>
+</head>
+<body data-page="accueil">
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <aside class="sidebar" id="menu">
+    <img class="logo" src="./images/Logo_MyPath.png" alt="Logo MyPath">
+    <nav class="menu-links" aria-label="Navigation principale">
+      <a href="index.html" aria-current="page">Accueil</a>
+      <a href="progression.html">Progression</a>
+    </nav>
+  </aside>
+
+  <div class="content">
+    <header class="navbar">
+      <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false">&#9776;</button>
+      <div class="search">
+        <label class="visually-hidden" for="search">Rechercher un cours</label>
+        <input class="search-input" id="search" type="search" placeholder="Search...">
+        <button class="search-button" type="button">Search</button>
+      </div>
+      <div class="profile">
+        <img class="profile-img" src="./images/profile.webp" alt="Profil">
+        <p class="profile-name">Student</p>
+      </div>
+    </header>
+    
+    <main class="main" id="contenu">
+      <h1 class="page-title">Mes cours</h1>
+
+      <section class="progress-panel" id="progression" aria-label="Progression globale">
+        <p class="progress-text" aria-live="polite"><span data-progress-text>0 cours terminé sur 20 (0 %)</span></p>
+        <progress class="progress-bar" max="100" value="0" aria-label="Progression globale">0 %</progress>
+      </section>
+      
+      <!-- Les cartes des cours sont générées par script.js à partir de courses.js -->
+    </main>
+     <p class="empty" id="empty" hidden>Aucun cours disponible.</p>
+  </div>
+
+  <script src="courses.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
